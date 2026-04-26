@@ -1,3 +1,4 @@
+import { BinaryBackground } from "../components/canvas/Background";
 import "./globals.css";
 
 export const metadata = {
@@ -11,8 +12,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
-      <body className="bg-[var(--bg)] text-[var(--text)] transition-colors duration-500">
+    <html>
+      <body>
+        <BinaryBackground />
         {children}
       </body>
     </html>
