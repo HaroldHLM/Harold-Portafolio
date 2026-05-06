@@ -1,4 +1,6 @@
 import { BinaryBackground } from "../components/canvas/Background";
+import { Navbar } from "../components/ui/Navbar";
+import Hero from "../components/ui/Hero";
 import "./globals.css";
 
 export const metadata = {
@@ -15,6 +17,8 @@ export default function RootLayout({
     <html>
       <body>
         <BinaryBackground />
+        <Navbar />
+        <Hero />
         {children}
       </body>
     </html>

@@ -7,13 +7,13 @@ export function BinaryBackground() {
   const current = useRef({ x: 0, y: 0 });
   const lastMove = useRef(0);
 
-  // 👉 cache de colores (PRO)
+  //Colores actuales del tema
   const themeColors = useRef({
     bg: "#0a1428",
     text: "#f9fafb",
   });
 
-  // 🔧 convertir HEX → RGB
+  // convertimos hex a rgb
   function hexToRgb(hex: string) {
     const clean = hex.replace("#", "");
     const bigint = parseInt(clean, 16);
@@ -25,7 +25,7 @@ export function BinaryBackground() {
     return `${r}, ${g}, ${b}`;
   }
 
-  // 🎨 obtener variables CSS
+  // obtener variables CSS
   function getThemeColors() {
     const styles = getComputedStyle(document.documentElement);
 
@@ -86,7 +86,7 @@ export function BinaryBackground() {
 
       ctx.clearRect(0, 0, width, height);
 
-      // 🎨 fondo dinámico
+      // fondo dinámico
       ctx.fillStyle = bg;
       ctx.fillRect(0, 0, width, height);
 

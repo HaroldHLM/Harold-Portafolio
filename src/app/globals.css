@@ -12,7 +12,7 @@ body {
 /* modo claro por defecto*/
 :root {
   --bg: #f7f9ff;
-  --text: #0a0a0a;
+  --text: #000;
   --muted: #6b7280;
   --border: #e5e7eb;
 
@@ -21,11 +21,26 @@ body {
 }
 
 .dark {
-  --bg: #0a1428;
+  --bg: #000;
   --text: #f9fafb;
   --muted: #9ca3af;
   --border: #1f2937;
 
   --primary: #818cf8;
   --accent: #140f2d;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.8s ease forwards;
 }

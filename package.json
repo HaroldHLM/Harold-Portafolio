@@ -1,7 +1,10 @@
 {
   "name": "harold-portafolio",
-  "version": "0.1.0",
+  "version": "1.0.0",
+  "description": "Harold's personal portfolio built with Next.js, React Three Fiber, and Tailwind CSS. Showcasing projects, skills, and experience in a visually engaging way.",
   "private": true,
+  "author": "Harold Layme",
+  "license": "MIT",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
