@@ -1,4 +1,3 @@
-// import SceneCanvas from "../components/canvas/SceneCanvas";
 import ThemeToggle from "../components/ui/ThemeToggle";
 
 export default function Home() {

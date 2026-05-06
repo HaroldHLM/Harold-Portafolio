@@ -6,14 +6,26 @@ html,
 body {
   margin: 0;
   padding: 0;
+  background: va(--bg);
+  color: var(--text);
 }
-
+/* modo claro por defecto*/
 :root {
-  --bg: #ffffff;
+  --bg: #f7f9ff;
   --text: #0a0a0a;
+  --muted: #6b7280;
+  --border: #e5e7eb;
+
+  --primary: #6366f1;
+  --accent: #0a1428;
 }
 
 .dark {
-  --bg: #0a0a0a;
-  --text: #ffffff;
+  --bg: #0a1428;
+  --text: #f9fafb;
+  --muted: #9ca3af;
+  --border: #1f2937;
+
+  --primary: #818cf8;
+  --accent: #140f2d;
 }

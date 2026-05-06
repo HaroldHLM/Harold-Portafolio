@@ -7,9 +7,42 @@ export function BinaryBackground() {
   const current = useRef({ x: 0, y: 0 });
   const lastMove = useRef(0);
 
+  // 👉 cache de colores (PRO)
+  const themeColors = useRef({
+    bg: "#0a1428",
+    text: "#f9fafb",
+  });
+
+  // 🔧 convertir HEX → RGB
+  function hexToRgb(hex: string) {
+    const clean = hex.replace("#", "");
+    const bigint = parseInt(clean, 16);
+
+    const r = (bigint >> 16) & 255;
+    const g = (bigint >> 8) & 255;
+    const b = bigint & 255;
+
+    return `${r}, ${g}, ${b}`;
+  }
+
+  // 🎨 obtener variables CSS
+  function getThemeColors() {
+    const styles = getComputedStyle(document.documentElement);
+
+    return {
+      bg: styles.getPropertyValue("--bg").trim(),
+      text: styles.getPropertyValue("--text").trim(),
+    };
+  }
+
   useEffect(() => {
+    lastMove.current = Date.now();
+
+    // inicializar colores
+    themeColors.current = getThemeColors();
+
     const observer = new MutationObserver(() => {
-      // fuerza un repaint suave (opcional)
+      themeColors.current = getThemeColors(); // 🔥 actualiza al cambiar tema
     });
 
     observer.observe(document.documentElement, {
@@ -18,10 +51,6 @@ export function BinaryBackground() {
     });
 
     return () => observer.disconnect();
-  }, []);
-
-  useEffect(() => {
-    lastMove.current = Date.now();
   }, []);
 
   useEffect(() => {
@@ -48,26 +77,20 @@ export function BinaryBackground() {
     window.addEventListener("resize", handleResize);
     window.addEventListener("mousemove", handleMouse);
 
-    function isDarkMode() {
-      return document.documentElement.classList.contains("dark");
+    function pseudoNoise(x: number, y: number) {
+      return (Math.sin(x * 12.9898 + y * 78.233) * 43758.5453) % 1;
     }
 
     function draw() {
-      const darkMode = isDarkMode();
-      const bgColor = darkMode
-        ? "rgb(10, 20, 40)" // azul marino
-        : "rgb(245, 247, 255)"; // claro elegante
+      const { bg, text } = themeColors.current;
 
-      const textColor = darkMode
-        ? "rgba(140,180,255," // números claros
-        : "rgba(10,20,40,"; // números azul marino
-
-      // fondo azul marino con fade
       ctx.clearRect(0, 0, width, height);
-      ctx.fillStyle = bgColor;
+
+      // 🎨 fondo dinámico
+      ctx.fillStyle = bg;
       ctx.fillRect(0, 0, width, height);
 
-      // suavizado del mouse (interpolación)
+      // suavizado mouse
       current.current.x += (mouse.current.x - current.current.x) * 0.08;
       current.current.y += (mouse.current.y - current.current.y) * 0.08;
 
@@ -80,23 +103,20 @@ export function BinaryBackground() {
 
           const dist = Math.sqrt(dx * dx + dy * dy);
 
-          function pseudoNoise(x: number, y: number) {
-            return (Math.sin(x * 12.9898 + y * 78.233) * 43758.5453) % 1;
-          }
           const baseRadius = 50;
           const variation = 20;
 
           const noise = pseudoNoise(x, y);
-
           const dynamicRadius = baseRadius + noise * variation * 0.5;
 
           if (dist < dynamicRadius && idleTime < 800) {
             const intensity = 1 - dist / dynamicRadius;
 
-            ctx.fillStyle = `${textColor}${intensity * 0.35})`;
+            ctx.fillStyle = `rgba(${hexToRgb(text)}, ${intensity * 0.35})`;
+
             ctx.font = "10px monospace";
 
-            const char = chars[(x + y) % 2]; // patrón ordenado (no random)
+            const char = chars[(x + y) % 2];
 
             ctx.fillText(char, x, y);
           }
