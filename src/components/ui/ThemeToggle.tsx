@@ -1,34 +1,64 @@
-/* eslint-disable react-hooks/set-state-in-effect */
 "use client";
 
-import { useEffect, useState } from "react";
+import { Sun, Moon } from "lucide-react";
 
-export default function ThemeToggle() {
-  const [dark, setDark] = useState<boolean | null>(null);
+type ThemeToggleProps = {
+  dark: boolean;
+  toggleTheme: () => void;
+};
 
-  useEffect(() => {
-    const saved = localStorage.getItem("theme");
-    const isDark = saved ? saved === "dark" : true;
-
-    setDark(isDark);
-    document.documentElement.classList.toggle("dark", isDark);
-  }, []);
-
-  useEffect(() => {
-    if (dark === null) return;
-
-    document.documentElement.classList.toggle("dark", dark);
-    localStorage.setItem("theme", dark ? "dark" : "light");
-  }, [dark]);
-
-  if (dark === null) return null;
-
+export default function ThemeToggle({ dark, toggleTheme }: ThemeToggleProps) {
   return (
     <button
-      onClick={() => setDark(!dark)}
-      className="fixed top-5 right-5 z-50 px-4 py-2 border border-border bg-[var(--bg)] text-[var(--text)] rounded-lg"
+      onClick={toggleTheme}
+      className={`
+        relative flex items-center
+        w-17 h-9
+        px-1
+        rounded-full
+        border border-(--border)
+        bg-(--bg)/70
+        backdrop-blur-md
+        transition-all duration-300
+      `}
     >
-      {dark ? "Light" : "Dark"}
+      {/* Iconos */}
+      <div className="pointer-events-none absolute inset-0 flex items-center justify-between px-3">
+        <Sun
+          size={14}
+          className={`
+            transition-colors duration-300
+            ${dark ? "text-(--muted)" : "text-yellow-400"}
+          `}
+        />
+
+        <Moon
+          size={14}
+          className={`
+            transition-colors duration-300
+            ${dark ? "text-blue-400" : "text-(--muted)"}
+          `}
+        />
+      </div>
+
+      {/* Thumb */}
+      <div
+        className={`
+          relative z-10
+          flex size-7 items-center justify-center
+          rounded-full
+          bg-(--text)
+          shadow-md
+          transition-transform duration-300 ease-out
+          ${dark ? "translate-x-8" : "translate-x-0"}
+        `}
+      >
+        {dark ? (
+          <Moon size={14} className="text-(--bg)" />
+        ) : (
+          <Sun size={14} className="text-(--bg)" />
+        )}
+      </div>
     </button>
   );
 }
