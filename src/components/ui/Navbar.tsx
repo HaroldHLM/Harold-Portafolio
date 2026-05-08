@@ -1,38 +1,48 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import Link from "next/link";
+import { useTranslations } from "next-intl";
+import { Link } from "../../i18n/navigation";
+import LocaleToggle from "./LocaleToggle";
 import ThemeToggle from "./ThemeToggle";
 
 const navLinks = [
   { num: "01.", label: "home", href: "/" },
-  { num: "02.", label: "about", href: "#about" },
-  { num: "03.", label: "work", href: "#work" },
-  { num: "04.", label: "skills", href: "#skills" },
-  { num: "05.", label: "blog", href: "#blog" },
+  { num: "02.", label: "about", href: "/#about" },
+  { num: "03.", label: "work", href: "/#work" },
+  { num: "04.", label: "skills", href: "/#skills" },
+  { num: "05.", label: "blog", href: "/#blog" },
 ];
 
 export default function Navbar() {
+  const t = useTranslations("Navbar");
   const [active, setActive] = useState("home");
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
-
-  const [dark, setDark] = useState<boolean>(() => {
-    if (typeof window !== "undefined") {
-      const saved = localStorage.getItem("theme");
-      return saved ? saved === "dark" : true;
-    }
-    return true;
-  });
+  const [dark, setDark] = useState(false);
 
   useEffect(() => {
-    if (dark === null) return;
     document.documentElement.classList.toggle("dark", dark);
-    localStorage.setItem("theme", dark ? "dark" : "light");
   }, [dark]);
 
+  useEffect(() => {
+    const frame = window.requestAnimationFrame(() => {
+      const savedTheme = localStorage.getItem("theme");
+      const prefersDark = window.matchMedia(
+        "(prefers-color-scheme: dark)",
+      ).matches;
+
+      setDark(savedTheme ? savedTheme === "dark" : prefersDark);
+    });
+
+    return () => window.cancelAnimationFrame(frame);
+  }, []);
+
   const toggleTheme = () => {
-    setDark((prev) => !prev);
+    const newTheme = !dark;
+
+    setDark(newTheme);
+    localStorage.setItem("theme", newTheme ? "dark" : "light");
   };
 
   useEffect(() => {
@@ -51,9 +61,11 @@ export default function Navbar() {
       >
         <div
           className={`
-            flex w-full max-w-6xl items-center justify-between
+            grid w-full max-w-6xl grid-cols-[auto_auto] items-center justify-between
             border border-(--border) bg-(--bg)/70
-            px-5 backdrop-blur-md transition-all duration-300 md:px-8
+            px-5 backdrop-blur-md transition-all duration-300
+            lg:grid-cols-[minmax(170px,0.8fr)_minmax(0,auto)_minmax(245px,0.8fr)] lg:px-6
+            xl:grid-cols-[minmax(210px,1fr)_minmax(0,auto)_minmax(300px,1fr)] xl:px-8
             ${scrolled ? "h-14" : "h-16"}
           `}
         >
@@ -69,7 +81,7 @@ export default function Navbar() {
             <span className="text-[20px] text-(--dorado)">]</span>
           </Link>
 
-          <ul className="m-0 hidden list-none items-center gap-2 p-0 lg:flex xl:gap-5">
+          <ul className="m-0 hidden min-w-0 list-none items-center justify-center gap-1 p-0 lg:flex xl:gap-2 2xl:gap-5">
             {navLinks.map(({ num, label, href }) => (
               <li key={label}>
                 <Link
@@ -77,8 +89,8 @@ export default function Navbar() {
                   onClick={() => setActive(label)}
                   className={`
                     nav-link-underline relative flex items-center gap-1.5
-                    px-3 py-2 font-dm-mono text-[11px] font-light uppercase tracking-widest
-                    no-underline transition-colors duration-200 xl:px-4.5
+                    px-2 py-2 font-dm-mono text-[10px] font-light uppercase tracking-[0.14em]
+                    no-underline transition-colors duration-200 xl:px-3 xl:text-[11px] xl:tracking-widest
                     ${active === label ? "text-(--text) active" : "text-(--muted) opacity-60 hover:text-(--text)"}
                   `}
                 >
@@ -87,25 +99,26 @@ export default function Navbar() {
                   >
                     {num}
                   </span>
-                  {label}
+                  {t(label)}
                 </Link>
               </li>
             ))}
           </ul>
 
           {/* Tema */}
-          <div className="hidden items-center gap-4 lg:flex">
+          <div className="hidden items-center justify-end gap-2 lg:flex xl:gap-3 2xl:gap-4">
             <ThemeToggle dark={dark} toggleTheme={toggleTheme} />
+            <LocaleToggle />
             <Link
               href="#contact"
               className="
-                border border-(--dorado)/60 px-5 py-2
+                border border-(--dorado)/60 px-4 py-2
                 font-dm-mono text-[10px] uppercase tracking-widest
                 text-(--dorado) no-underline transition-all duration-200
-                hover:border-[var--dorado)] hover:bg-(--dorado) hover:text-(--bg)
+                hover:border-(--dorado) hover:bg-(--dorado) hover:text-(--bg) xl:px-5
               "
             >
-              contact
+              {t("contact")}
             </Link>
           </div>
 
@@ -153,27 +166,30 @@ export default function Navbar() {
               setMenuOpen(false);
             }}
             className={`
-              font-cormorant text-(--text)  hover:text-(--dorado) nav-link-underline relative flex items-center gap-1.5 px-3 py-2 font-dm-mono text-[11px] font-light uppercase tracking-widest
+              font-cormorant text-(--text) hover:text-(--dorado) nav-link-underline relative flex items-center gap-1.5 px-3 py-2 font-dm-mono text-[11px] font-light uppercase tracking-widest
               no-underline transition-colors duration-200 xl:px-4.5
               ${active === label ? "text-(--text) active" : "text-(--muted) opacity-60 hover:text-(--text)"}
             `}
             style={{ transitionDelay: menuOpen ? `${i * 60}ms` : "0ms" }}
           >
-            <span className="font-dm-mono text-[11px] text-(--dorado) ">
+            <span className="font-dm-mono text-[11px] text-(--dorado)">
               {num}
             </span>
-            {label}
+            {t(label)}
           </Link>
         ))}
         <Link
-          href="#contact"
+          href="/#contact"
           onClick={() => setMenuOpen(false)}
           className="mt-4 font-dm-mono text-[11px] tracking-widest uppercase text-(--dorado) border border-(--dorado)/60 px-8 py-3 no-underline hover:bg-(--dorado) hover:text-(--text) transition-all duration-200"
         >
-          contact
+          {t("contact")}
         </Link>
         <div className="mt-2">
           <ThemeToggle dark={dark} toggleTheme={toggleTheme} />
+        </div>
+        <div className="mt-2">
+          <LocaleToggle />
         </div>
       </div>
     </>

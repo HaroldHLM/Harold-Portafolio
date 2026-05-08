@@ -1,0 +1,26 @@
+{
+  "Metadata": {
+    "title": "Harold Layme | Software Engineer",
+    "description": "Software engineering portfolio"
+  },
+  "Navbar": {
+    "home": "Home",
+    "about": "About",
+    "work": "Work",
+    "skills": "Skills",
+    "blog": "Blog",
+    "contact": "Contact"
+  },
+  "Hero": {
+    "badge": "Software Engineer · Web Developer",
+    "titleTop": "Building modern",
+    "titleHighlight": "web experiences",
+    "description": "I design and build scalable, high-performance web applications with clean architecture and modern technologies.",
+    "primaryAction": "View Projects",
+    "secondaryAction": "Contact Me"
+  },
+  "Home": {
+    "scrollDown": "Scroll Down",
+    "nextScene": "Next Scene"
+  }
+}

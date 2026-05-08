@@ -21,6 +21,8 @@ export default function ThemeToggle({ dark, toggleTheme }: ThemeToggleProps) {
         backdrop-blur-md
         transition-all duration-300
       `}
+      aria-label={`Switch to ${dark ? "light" : "dark"} theme`}
+      type="button"
     >
       {/* Iconos */}
       <div className="pointer-events-none absolute inset-0 flex items-center justify-between px-3">

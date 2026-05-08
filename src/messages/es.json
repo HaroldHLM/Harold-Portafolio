@@ -1,0 +1,26 @@
+{
+  "Metadata": {
+    "title": "Harold Layme | Ingeniero de Software",
+    "description": "Portafolio de ingeniería de software"
+  },
+  "Navbar": {
+    "home": "Inicio",
+    "about": "Sobre mí",
+    "work": "Proyectos",
+    "skills": "Habilidades",
+    "blog": "Blog",
+    "contact": "Contacto"
+  },
+  "Hero": {
+    "badge": "Ingeniero de Software · Desarrollador Web",
+    "titleTop": "Creando experiencias",
+    "titleHighlight": "web modernas",
+    "description": "Diseño y construyo aplicaciones web escalables y de alto rendimiento con arquitectura limpia y tecnologías modernas.",
+    "primaryAction": "Ver proyectos",
+    "secondaryAction": "Contáctame"
+  },
+  "Home": {
+    "scrollDown": "Desplázate",
+    "nextScene": "Siguiente escena"
+  }
+}
