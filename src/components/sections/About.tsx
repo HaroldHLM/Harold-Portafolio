@@ -1,6 +1,9 @@
 export default function About() {
   return (
-    <section id="about" className="min-h-screen py-32 flex items-center ">
+    <section
+      id="about"
+      className="relative z-10 min-h-screen py-32 flex items-center"
+    >
       <div className="max-w-4xl">
         <span className="text-sm uppercase tracking-[0.2em] text-(--dorado)">
           About Me
