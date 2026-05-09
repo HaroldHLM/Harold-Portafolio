@@ -12,15 +12,14 @@
     "contact": "Contact"
   },
   "Hero": {
-    "badge": "Software Engineer · Web Developer",
+    "badge": "Software Engineer",
+    "titleLine1": "I build software",
+    "titleAccent": "that combines design,",
+    "titleLine3": "performance, and experience.",
     "titleTop": "Building modern",
     "titleHighlight": "web experiences",
-    "description": "I design and build scalable, high-performance web applications with clean architecture and modern technologies.",
+    "description": "Full Stack Developer focused on modern architecture, automation, and artificial intelligence integration.",
     "primaryAction": "View Projects",
     "secondaryAction": "Contact Me"
-  },
-  "Home": {
-    "scrollDown": "Scroll Down",
-    "nextScene": "Next Scene"
   }
 }

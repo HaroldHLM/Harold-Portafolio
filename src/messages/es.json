@@ -12,15 +12,14 @@
     "contact": "Contacto"
   },
   "Hero": {
-    "badge": "Ingeniero de Software · Desarrollador Web",
+    "badge": "Ingeniero de Software",
+    "titleLine1": "Construyo software",
+    "titleAccent": "que combina diseño,",
+    "titleLine3": "rendimiento y experiencia.",
     "titleTop": "Creando experiencias",
     "titleHighlight": "web modernas",
-    "description": "Diseño y construyo aplicaciones web escalables y de alto rendimiento con arquitectura limpia y tecnologías modernas.",
+    "description": "Desarrollador Full Stack enfocado en arquitectura moderna, automatización e integración de inteligencia artificial.",
     "primaryAction": "Ver proyectos",
     "secondaryAction": "Contáctame"
-  },
-  "Home": {
-    "scrollDown": "Desplázate",
-    "nextScene": "Siguiente escena"
   }
 }

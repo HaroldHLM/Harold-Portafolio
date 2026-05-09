@@ -1,6 +1,8 @@
-import Hero from "../../components/ui/Hero";
+import Container from "@/src/components/layout/Container";
+import Hero from "../../components/sections/Hero";
 import { routing } from "../../i18n/routing";
-import { getTranslations, setRequestLocale } from "next-intl/server";
+import { setRequestLocale } from "next-intl/server";
+import About from "@/src/components/sections/About";
 
 type Props = {
   params: Promise<{ locale: string }>;
@@ -14,20 +16,10 @@ export default async function Home({ params }: Props) {
   const { locale } = await params;
   setRequestLocale(locale);
 
-  const t = await getTranslations("Home");
-
   return (
-    <main className="relative z-10 min-h-screen">
+    <Container>
       <Hero />
-      <div className="relative z-10 h-[200vh]">
-        <section className="h-screen flex items-center justify-center">
-          <h1 className="text-5xl">{t("scrollDown")}</h1>
-        </section>
-
-        <section className="h-screen flex items-center justify-center">
-          <h1 className="text-5xl">{t("nextScene")}</h1>
-        </section>
-      </div>
-    </main>
+      <About />
+    </Container>
   );
 }
