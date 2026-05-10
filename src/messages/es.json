@@ -21,5 +21,17 @@
     "description": "Desarrollador Full Stack enfocado en arquitectura moderna, automatización e integración de inteligencia artificial.",
     "primaryAction": "Ver proyectos",
     "secondaryAction": "Contáctame"
+  },
+  "About": {
+    "badge": "Sobre mí",
+    "description": "Ingeniero de Software. Cuento con experiencia en desarrollo web, móvil y backend, desarrollando aplicaciones escalables enfocadas en rendimiento, arquitectura limpia y experiencia de usuario. También trabajo en automatización de procesos e integración de herramientas inteligentes para optimizar tareas repetitivas mediante software, bases de datos e inteligencia artificial.",
+    "CV": "Ver CV",
+    "Stats": {
+      "projects": "proyectos entregados",
+      "experience": "años de experiencia",
+      "technologies": "tecnologías core",
+      "bugs": "bugs resueltos"
+    },
+    "Currently": "Disponible para oportunidades full-time. Explorando arquitecturas serverless y edge computing."
   }
 }

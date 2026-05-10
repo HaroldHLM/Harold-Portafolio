@@ -21,5 +21,17 @@
     "description": "Full Stack Developer focused on modern architecture, automation, and artificial intelligence integration.",
     "primaryAction": "View Projects",
     "secondaryAction": "Contact Me"
+  },
+  "About": {
+    "badge": "About Me",
+    "description": "Software Engineer. I have experience in web, mobile, and backend development, building scalable applications focused on performance, clean architecture, and user experience. I also work on process automation and intelligent tool integration to optimize repetitive tasks through software, databases, and artificial intelligence.",
+    "CV": "View CV",
+    "Stats": {
+      "projects": "delivered projects",
+      "experience": "years of experience",
+      "technologies": "core technologies",
+      "bugs": "bugs resolved"
+    },
+    "Currently": "Available for full-time opportunities. Exploring serverless architectures and edge computing."
   }
 }

@@ -166,7 +166,7 @@ export default function Navbar() {
               setMenuOpen(false);
             }}
             className={`
-              font-cormorant text-(--text) hover:text-(--dorado) nav-link-underline relative flex items-center gap-1.5 px-3 py-2 font-dm-mono text-[11px] font-light uppercase tracking-widest
+              font-cormorant text-(--text) hover:text-(--dorado) nav-link-underline relative flex gap-1.5 px-3 py-2 font-dm-mono text-[11px] font-light uppercase tracking-widest
               no-underline transition-colors duration-200 xl:px-4.5
               ${active === label ? "text-(--text) active" : "text-(--muted) opacity-60 hover:text-(--text)"}
             `}
