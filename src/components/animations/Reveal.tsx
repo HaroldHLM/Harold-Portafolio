@@ -23,7 +23,7 @@ export default function RevealLeft({ children, className }: Props) {
         filter: "blur(0px)",
       }}
       viewport={{
-        once: false,
+        once: true,
         amount: 0.2,
       }}
       transition={{

@@ -4,7 +4,7 @@
     "description": "Software engineering portfolio"
   },
   "Navbar": {
-    "home": "Home",
+    "hero": "Home",
     "about": "About",
     "work": "Projects",
     "skills": "Skills",

@@ -4,7 +4,7 @@
     "description": "Portafolio de ingeniería de software"
   },
   "Navbar": {
-    "home": "Inicio",
+    "hero": "Inicio",
     "about": "Sobre mí",
     "work": "Proyectos",
     "skills": "Habilidades",

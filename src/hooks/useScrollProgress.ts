@@ -2,23 +2,38 @@
 
 import { useEffect, useState } from "react";
 
-export function useScrollProgress() {
-  const [progress, setProgress] = useState(0);
+const sections = ["hero", "about", "skills", "work", "contact"];
+
+export default function useActiveSection() {
+  const [active, setActive] = useState("hero");
 
   useEffect(() => {
-    const updateScroll = () => {
-      const scrollTop = window.scrollY;
-      const height = document.documentElement.scrollHeight - window.innerHeight;
+    const handleScroll = () => {
+      let current = "hero";
 
-      const t = scrollTop / height;
-      setProgress(t);
+      sections.forEach((id) => {
+        const section = document.getElementById(id);
+
+        if (!section) return;
+
+        const rect = section.getBoundingClientRect();
+
+        if (rect.top <= 140) {
+          current = id;
+        }
+      });
+
+      setActive(current);
     };
 
-    window.addEventListener("scroll", updateScroll);
-    updateScroll();
+    window.addEventListener("scroll", handleScroll);
 
-    return () => window.removeEventListener("scroll", updateScroll);
+    handleScroll();
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
   }, []);
 
-  return progress;
+  return active;
 }

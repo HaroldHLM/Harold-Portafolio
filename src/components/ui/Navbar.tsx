@@ -5,18 +5,19 @@ import { useTranslations } from "next-intl";
 import { Link } from "../../i18n/navigation";
 import LocaleToggle from "./LocaleToggle";
 import ThemeToggle from "./ThemeToggle";
+import useActiveSection from "../../hooks/useScrollProgress";
 
 const navLinks = [
-  { num: "01.", label: "home", href: "/" },
+  { num: "01.", label: "hero", href: "/#hero" },
   { num: "02.", label: "about", href: "/#about" },
   { num: "03.", label: "skills", href: "/#skills" },
   { num: "04.", label: "work", href: "/#work" },
-  { num: "05.", label: "blog", href: "/#blog" },
+  // { num: "05.", label: "blog", href: "/#blog" },
 ];
 
 export default function Navbar() {
   const t = useTranslations("Navbar");
-  const [active, setActive] = useState("home");
+  const active = useActiveSection();
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const [dark, setDark] = useState(false);
@@ -86,7 +87,7 @@ export default function Navbar() {
               <li key={label}>
                 <Link
                   href={href}
-                  onClick={() => setActive(label)}
+                  onClick={() => active}
                   className={`
                     nav-link-underline relative flex items-center gap-1.5
                     px-2 py-2 font-dm-mono text-[10px] font-light uppercase tracking-[0.14em]
@@ -162,7 +163,7 @@ export default function Navbar() {
             key={label}
             href={href}
             onClick={() => {
-              setActive(label);
+              active;
               setMenuOpen(false);
             }}
             className={`
