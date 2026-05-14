@@ -120,7 +120,7 @@ export default function About() {
           </Reveal>
           <Reveal>
             {/* Actualmente */}
-            <div className="border-l-2 border-[#b8a88a] pl-5 py-4 bg-(--accent)">
+            <div className="border-l-2 border-(--dorado) pl-5 py-4 bg-(--accent)">
               <div className="font-mono text-[10px] tracking-[0.15em] uppercase text-(--dorado) mb-2">
                 {"// actualmente"}
               </div>

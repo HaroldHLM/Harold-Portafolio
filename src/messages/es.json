@@ -33,5 +33,78 @@
       "bugs": "bugs resueltos"
     },
     "Currently": "Disponible para oportunidades full-time. Explorando arquitecturas serverless y edge computing."
+  },
+  "Skill": {
+    "badge": "Habilidades",
+    "titleLine1": "Tecnologías",
+    "titleLine2": "y",
+    "titleLine3": "herramientas",
+    "description": "No solo tecnologías que conozco — herramientas que uso a diario para resolver problemas reales. Cada nivel refleja experiencia práctica en proyectos.",
+    "filters": {
+      "all": "Todas",
+      "frontend": "Frontend",
+      "backend": "Backend",
+      "automatización y data": "Automatización y Data",
+      "movil": "Móvil"
+    },
+    "Frontend": {
+      "title": "Frontend",
+      "skills": [
+        { "name": "React" },
+        { "name": "Next.js" },
+        { "name": "Vite" },
+        { "name": "TypeScript" },
+        { "name": "JavaScript" },
+        { "name": "Tailwind CSS" },
+        { "name": "HTML / CSS" },
+        { "name": "Framer Motion" }
+      ]
+    },
+    "Backend": {
+      "title": "Backend",
+      "skills": [
+        { "name": "Node.js" },
+        { "name": "Express.js" },
+        { "name": "REST APIs" },
+        { "name": "Prisma ORM" },
+        { "name": "WebSockets" },
+        { "name": "Supabase" },
+        { "name": "SQL / NoSQL" }
+      ]
+    },
+    "Automatización y Data": {
+      "title": "Automatización y Data",
+      "skills": [
+        { "name": "Power BI" },
+        { "name": "Microsoft Power Automate" },
+        { "name": "Azure" },
+        { "name": "Integración de IA" },
+        { "name": "Integración de APIs" },
+        { "name": "Automatización de procesos" },
+        { "name": "Optimización de flujos de trabajo" }
+      ]
+    },
+    "Soft Skills": {
+      "title": "Habilidades blandas",
+      "skills": [
+        { "name": "Resolución de problemas" },
+        { "name": "Pensamiento analítico" },
+        { "name": "Comunicación" },
+        { "name": "Aprendizaje continuo" },
+        { "name": "Trabajo en equipo" },
+        { "name": "Adaptabilidad" },
+        { "name": "Atención al detalle" }
+      ]
+    },
+    "Mobile": {
+      "title": "Desarrollo móvil",
+      "skills": [
+        { "name": "React Native" },
+        { "name": "Expo" },
+        { "name": "UI móvil responsiva" },
+        { "name": "Navegación móvil" }
+      ]
+    },
+    "tools": "— herramientas del día a día"
   }
 }

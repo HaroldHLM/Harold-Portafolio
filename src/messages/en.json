@@ -33,5 +33,78 @@
       "bugs": "bugs resolved"
     },
     "Currently": "Available for full-time opportunities. Exploring serverless architectures and edge computing."
+  },
+  "Skill": {
+    "badge": "Skills",
+    "titleLine1": "Stack",
+    "titleLine2": "&",
+    "titleLine3": "Tools",
+    "description": "Not just technologies I know — tools I use daily to solve real problems. Each level reflects hands-on experience in projects.",
+    "filters": {
+      "all": "All",
+      "frontend": "Frontend",
+      "backend": "Backend",
+      "automatización y data": "Automation & Data",
+      "movil": "Mobile"
+    },
+    "Frontend": {
+      "title": "Frontend",
+      "skills": [
+        { "name": "React" },
+        { "name": "Next.js" },
+        { "name": "Vite" },
+        { "name": "TypeScript" },
+        { "name": "JavaScript" },
+        { "name": "Tailwind CSS" },
+        { "name": "HTML / CSS" },
+        { "name": "Framer Motion" }
+      ]
+    },
+    "Backend": {
+      "title": "Backend",
+      "skills": [
+        { "name": "Node.js" },
+        { "name": "Express" },
+        { "name": "REST APIs" },
+        { "name": "Prisma ORM" },
+        { "name": "WebSockets" },
+        { "name": "Supabase" },
+        { "name": "SQL / NoSQL" }
+      ]
+    },
+    "Automatización y Data": {
+      "title": "Automation & Data",
+      "skills": [
+        { "name": "Power BI" },
+        { "name": "Microsoft Power Automate" },
+        { "name": "Azure" },
+        { "name": "AI Integration" },
+        { "name": "API Integration" },
+        { "name": "Process Automation" },
+        { "name": "Workflow Optimization" }
+      ]
+    },
+    "Soft Skills": {
+      "title": "Soft Skills",
+      "skills": [
+        { "name": "Problem Solving" },
+        { "name": "Analytical Thinking" },
+        { "name": "Communication" },
+        { "name": "Continuous Learning" },
+        { "name": "Teamwork" },
+        { "name": "Adaptability" },
+        { "name": "Attention to Detail" }
+      ]
+    },
+    "Mobile": {
+      "title": "Mobile Development",
+      "skills": [
+        { "name": "React Native" },
+        { "name": "Expo" },
+        { "name": "Responsive Mobile UI" },
+        { "name": "Mobile Navigation" }
+      ]
+    },
+    "tools": "— daily tools"
   }
 }
