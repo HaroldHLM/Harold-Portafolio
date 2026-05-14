@@ -106,5 +106,35 @@
       ]
     },
     "tools": "— herramientas del día a día"
+  },
+  "Projects": {
+    "badge": "Proyectos",
+    "titleLine1": "Cosas que",
+    "titleAccent": "construí",
+    "titleLine3": "de verdad.",
+    "description": " Proyectos reales — algunos en producción, otros experimentos que aprendieron algo. Cada uno tiene un problema detrás.",
+
+    "filters": { "all": "Todos" },
+    "counter": "Mostrando {count} proyectos",
+    "featured": "destacado",
+    "demo": "Demo",
+    "items": {
+      "ecommerce": {
+        "title": "E-Commerce Platform",
+        "description": "Plataforma de ventas con carrito, pagos con Stripe, panel de administración y gestión de inventario en tiempo real."
+      },
+      "task-manager": {
+        "title": "Task Manager App",
+        "description": "Gestor de tareas con drag & drop, etiquetas y colaboración en tiempo real vía WebSockets."
+      },
+      "blog-cms": {
+        "title": "Blog CMS",
+        "description": "Sistema de gestión de contenido con editor markdown, categorías y SEO automático."
+      },
+      "finance-dashboard": {
+        "title": "Finance Dashboard",
+        "description": "Dashboard de finanzas personales con gráficas interactivas, importación de CSV y reportes mensuales."
+      }
+    }
   }
 }

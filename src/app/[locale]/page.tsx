@@ -1,8 +1,10 @@
 import Container from "@/src/components/layout/Container";
 import Hero from "../../components/sections/Hero";
+import About from "@/src/components/sections/About";
+import Skill from "@/src/components/sections/Skills";
+import Projects from "@/src/components/sections/Projects";
 import { routing } from "../../i18n/routing";
 import { setRequestLocale } from "next-intl/server";
-import About from "@/src/components/sections/About";
 
 type Props = {
   params: Promise<{ locale: string }>;
@@ -20,6 +22,8 @@ export default async function Home({ params }: Props) {
     <Container>
       <Hero />
       <About />
+      <Skill />
+      <Projects />
     </Container>
   );
 }

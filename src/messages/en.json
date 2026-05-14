@@ -6,7 +6,7 @@
   "Navbar": {
     "home": "Home",
     "about": "About",
-    "work": "Work",
+    "work": "Projects",
     "skills": "Skills",
     "blog": "Blog",
     "contact": "Contact"
@@ -106,5 +106,34 @@
       ]
     },
     "tools": "— daily tools"
+  },
+  "Projects": {
+    "badge": "Projects",
+    "titleLine1": "Things I've",
+    "titleAccent": "built",
+    "titleLine3": "for real.",
+    "description": "Real projects — some in production, others experiments that learned something. Each has a problem behind it.",
+    "filters": { "all": "All" },
+    "counter": "Showing {count} projects",
+    "featured": "featured",
+    "demo": "Demo",
+    "items": {
+      "ecommerce": {
+        "title": "E-Commerce Platform",
+        "description": "Sales platform with cart, Stripe payments, admin dashboard, and real-time inventory management."
+      },
+      "task-manager": {
+        "title": "Task Manager App",
+        "description": "Task manager with drag & drop, labels, and real-time collaboration using WebSockets."
+      },
+      "blog-cms": {
+        "title": "Blog CMS",
+        "description": "Content management system with markdown editor, categories, and automatic SEO."
+      },
+      "finance-dashboard": {
+        "title": "Finance Dashboard",
+        "description": "Personal finance dashboard with interactive charts, CSV import, and monthly reports."
+      }
+    }
   }
 }
