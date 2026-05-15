@@ -111,7 +111,7 @@ export default function Navbar() {
             <ThemeToggle dark={dark} toggleTheme={toggleTheme} />
             <LocaleToggle />
             <Link
-              href="#contact"
+              href="/contact"
               className="
                 border border-(--dorado)/60 px-4 py-2
                 font-dm-mono text-[10px] uppercase tracking-widest
@@ -163,7 +163,6 @@ export default function Navbar() {
             key={label}
             href={href}
             onClick={() => {
-              active;
               setMenuOpen(false);
             }}
             className={`
@@ -180,7 +179,7 @@ export default function Navbar() {
           </Link>
         ))}
         <Link
-          href="/#contact"
+          href="/contact"
           onClick={() => setMenuOpen(false)}
           className="mt-4 font-dm-mono text-[11px] tracking-widest uppercase text-(--dorado) border border-(--dorado)/60 px-8 py-3 no-underline hover:bg-(--dorado) hover:text-(--text) transition-all duration-200"
         >
