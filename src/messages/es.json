@@ -136,5 +136,57 @@
         "description": "Dashboard de finanzas personales con gráficas interactivas, importación de CSV y reportes mensuales."
       }
     }
+  },
+  "Contact": {
+    "badge": "Contacto",
+    "titleLine1": "¿Trabajamos",
+    "titleLine2": "juntos?",
+    "description": "Estoy disponible para proyectos freelance, oportunidades full-time o simplemente para hablar de código. Respondo en menos de 24h.",
+    "socials": {
+      "GitHub": "GitHub",
+      "LinkedIn": "LinkedIn",
+      "Email": "Email"
+    },
+    "info": {
+      "nameLabel": "// nombre",
+      "nameValue": "Harold Layme",
+
+      "locationLabel": "// ubicación",
+      "locationValue": "Arequipa, Perú · remoto",
+
+      "availabilityLabel": "// disponibilidad",
+      "availabilityValue": "Abierto a oportunidades"
+    }
+  },
+  "ContactForm": {
+    "nameLabel": "Nombre",
+    "emailLabel": "Correo electrónico",
+    "messageLabel": "Mensaje",
+    "subjectLabel": "Asunto",
+    "submitButton": "Enviar mensaje",
+    "sending": "Enviando...",
+    "successMessage": "¡Mensaje enviado!",
+    "successText": "Gracias por escribirme. Te responderé lo antes posible — generalmente en menos de 24 horas.",
+    "infoMessage1": "Tu información no será",
+    "infoMessage2": "compartida con terceros.",
+    "errorMessage": "Hubo un error al enviar tu mensaje. Por favor, inténtalo de nuevo.",
+    "placeholder": {
+      "name": "Tu nombre",
+      "email": "Tu correo electrónico",
+      "message": "Cuéntame sobre tu proyecto o idea..."
+    },
+    "subjectPlaceholder": "Selecciona un motivo",
+    "subjects": {
+      "freelance": "Proyecto freelance",
+      "fulltime": "Oportunidad full-time",
+      "collab": "Colaboración / open source",
+      "other": "Otro"
+    },
+    "errors": {
+      "required": "Este campo es requerido",
+      "invalidEmail": "Email inválido",
+      "subject": "Selecciona un motivo",
+      "messageMin": "El mensaje debe tener al menos 20 caracteres"
+    }
   }
 }

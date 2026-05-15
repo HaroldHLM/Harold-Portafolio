@@ -135,5 +135,55 @@
         "description": "Personal finance dashboard with interactive charts, CSV import, and monthly reports."
       }
     }
+  },
+  "Contact": {
+    "badge": "Contact",
+    "titleLine1": "Let's work",
+    "titleLine2": "together?",
+    "description": "I'm available for freelance projects, full-time opportunities, or just to talk code. I respond within 24h.",
+    "socials": {
+      "GitHub": "GitHub",
+      "LinkedIn": "LinkedIn",
+      "Email": "Email"
+    },
+    "info": {
+      "nameLabel": "// name",
+      "nameValue": "Harold Layme",
+      "locationLabel": "// location",
+      "locationValue": "Arequipa, Peru · remote",
+      "availabilityLabel": "// availability",
+      "availabilityValue": "Open to opportunities"
+    }
+  },
+  "ContactForm": {
+    "nameLabel": "Name",
+    "emailLabel": "Email",
+    "subjectLabel": "Subject",
+    "messageLabel": "Message",
+    "sending": "Sending...",
+    "successMessage": "Message sent!",
+    "submitButton": "Send Message",
+    "successText": "Thank you for reaching out. I`ll get back to you as soon as possible — usually within 24 hours.",
+    "infoMessage1": "Your information will not ",
+    "infoMessage2": "be shared with third parties.",
+    "errorMessage": "An error occurred. Please try again.",
+    "placeholder": {
+      "name": "Your name",
+      "email": "Your email",
+      "message": "Tell me about your project or idea..."
+    },
+    "subjectPlaceholder": "Select a reason",
+    "subjects": {
+      "freelance": "Freelance Project",
+      "fulltime": "Full-time Opportunity",
+      "collab": "Collaboration / Open Source",
+      "other": "Other"
+    },
+    "errors": {
+      "required": "Name is required",
+      "invalidEmail": "Valid email is required",
+      "subject": "Subject is required",
+      "messageMin": "Message must be at least 20 characters"
+    }
   }
 }
