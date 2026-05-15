@@ -73,7 +73,7 @@ export default function WarGreymonScene() {
 
         <Model />
 
-        <OrbitControls enableZoom={false} autoRotate autoRotateSpeed={0} />
+        <OrbitControls enableZoom={false} autoRotate autoRotateSpeed={0.5} />
       </Canvas>
     </div>
   );
