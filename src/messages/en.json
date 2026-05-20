@@ -119,7 +119,7 @@
     "demo": "Demo",
     "items": {
       "SaaS": {
-        "title": "Multi-Tenant SaaS Platform for Academic Management",
+        "title": "Multi-Tenant SaaS Platform for Academic Management (In development)",
         "description": "Multi-tenant SaaS platform focused on academic management, designed with a scalable architecture and data isolation per organization. The system includes real-time analytics, automated report card generation, and secure user management through JWT-based authentication and access control."
       },
       "E-Commerce": {

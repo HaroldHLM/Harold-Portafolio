@@ -120,7 +120,7 @@
     "demo": "Demo",
     "items": {
       "SaaS": {
-        "title": "Plataforma SaaS Multi-Tenant de Gestión Académica",
+        "title": "Plataforma SaaS Multi-Tenant de Gestión Académica (En desarrollo)",
         "description": "Plataforma SaaS multi-tenant orientada a la gestión académica, diseñada con una arquitectura escalable y separación de datos por organización. El sistema incluye analíticas en tiempo real, generación automatizada de boletines y gestión segura de usuarios mediante autenticación y control de acceso basado en JWT."
       },
       "E-Commerce": {
