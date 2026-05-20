@@ -118,13 +118,13 @@
     "featured": "featured",
     "demo": "Demo",
     "items": {
-      "ecommerce": {
-        "title": "E-Commerce Platform",
-        "description": "Sales platform with cart, Stripe payments, admin dashboard, and real-time inventory management."
+      "SaaS": {
+        "title": "Multi-Tenant SaaS Platform for Academic Management",
+        "description": "Multi-tenant SaaS platform focused on academic management, designed with a scalable architecture and data isolation per organization. The system includes real-time analytics, automated report card generation, and secure user management through JWT-based authentication and access control."
       },
-      "task-manager": {
-        "title": "Task Manager App",
-        "description": "Task manager with drag & drop, labels, and real-time collaboration using WebSockets."
+      "E-Commerce": {
+        "title": "E-Commerce",
+        "description": "Team-based e-commerce platform that allows users to register, browse products, manage a shopping cart, and complete online payments through Culqi integration. The project includes user authentication, product management, and a complete checkout flow, following best practices in software development, testing, and continuous integration."
       },
       "blog-cms": {
         "title": "Blog CMS",
@@ -134,7 +134,9 @@
         "title": "Finance Dashboard",
         "description": "Personal finance dashboard with interactive charts, CSV import, and monthly reports."
       }
-    }
+    },
+    "Showing": "Showing",
+    "Pro": "projects"
   },
   "Contact": {
     "badge": "Contact",

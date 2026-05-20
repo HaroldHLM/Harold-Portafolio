@@ -119,13 +119,13 @@
     "featured": "destacado",
     "demo": "Demo",
     "items": {
-      "ecommerce": {
-        "title": "E-Commerce Platform",
-        "description": "Plataforma de ventas con carrito, pagos con Stripe, panel de administración y gestión de inventario en tiempo real."
+      "SaaS": {
+        "title": "Plataforma SaaS Multi-Tenant de Gestión Académica",
+        "description": "Plataforma SaaS multi-tenant orientada a la gestión académica, diseñada con una arquitectura escalable y separación de datos por organización. El sistema incluye analíticas en tiempo real, generación automatizada de boletines y gestión segura de usuarios mediante autenticación y control de acceso basado en JWT."
       },
-      "task-manager": {
-        "title": "Task Manager App",
-        "description": "Gestor de tareas con drag & drop, etiquetas y colaboración en tiempo real vía WebSockets."
+      "E-Commerce": {
+        "title": "E-Commerce",
+        "description": "E-commerce desarrollado en equipo que permite a los usuarios registrarse, explorar productos, gestionar un carrito de compras y realizar pagos en línea mediante integración con Culqi. El proyecto incluye autenticación de usuarios, gestión de productos y flujo completo de compra, aplicando buenas prácticas de desarrollo, testing e integración continua."
       },
       "blog-cms": {
         "title": "Blog CMS",
@@ -135,7 +135,9 @@
         "title": "Finance Dashboard",
         "description": "Dashboard de finanzas personales con gráficas interactivas, importación de CSV y reportes mensuales."
       }
-    }
+    },
+    "Showing": "Mostrando",
+    "Pro": "proyectos"
   },
   "Contact": {
     "badge": "Contacto",

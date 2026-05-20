@@ -19,34 +19,43 @@ type Project = {
 
 const projects: Project[] = [
   {
-    id: "ecommerce",
-    stack: ["Next.js", "TypeScript", "PostgreSQL", "Stripe", "Prisma"],
+    id: "SaaS",
+    stack: [
+      "Next.js",
+      "Nest.js",
+      "TypeScript",
+      "Tailwind CSS",
+      "PostgreSQL",
+      "Prisma",
+      "JWT",
+      "Docker",
+    ],
     github: "https://github.com/tuusuario/ecommerce",
-    demo: "https://ecommerce-demo.vercel.app",
+    demo: "https://ecommercess-demo.vercel.app",
     image: "/image/projects/image1.png",
     featured: true,
   },
   {
-    id: "task-manager",
-    stack: ["React", "Node.js", "Socket.io"],
+    id: "E-Commerce",
+    stack: ["React", "Node.js", "Prisma", "PostgreSQL", "TypeScript"],
     github: "https://github.com/tuusuario/taskmanager",
-    demo: "https://tasks-demo.vercel.app",
+    demo: "https://tasksss-demo.vercel.app",
     image: "/image/projects/image2.png",
   },
-  {
-    id: "blog-cms",
-    stack: ["Next.js", "PostgreSQL", "MDX"],
-    github: "https://github.com/tuusuario/blog-cms",
-    demo: "https://blog-demo.vercel.app",
-    image: "/image/projects/image3.png",
-  },
-  {
-    id: "finance-dashboard",
-    stack: ["React", "Node.js", "PostgreSQL", "Recharts"],
-    github: "https://github.com/tuusuario/finance",
-    demo: "https://finance-demo.vercel.app",
-    image: "/image/projects/image4.png",
-  },
+  //   {
+  //     id: "blog-cms",
+  //     stack: ["Next.js", "PostgreSQL", "MDX"],
+  //     github: "https://github.com/tuusuario/blog-cms",
+  //     demo: "https://blogss-demo.vercel.app",
+  //     image: "/image/projects/image3.png",
+  //   },
+  //   {
+  //     id: "finance-dashboard",
+  //     stack: ["React", "Node.js", "PostgreSQL", "Recharts"],
+  //     github: "https://github.com/tuusuario/finance",
+  //     demo: "https://finance-ssdemo.vercel.app",
+  //     image: "/image/projects/image4.png",
+  //   },
 ];
 
 // Genera los filtros dinámicamente de stacks
@@ -224,8 +233,8 @@ export default function Projects() {
       {/* Contador */}
       <Reveal>
         <p className="font-mono text-[10px] text-(--text)/70 mb-8">
-          Mostrando <span className="text-(--dorado)">{visible.length}</span>{" "}
-          proyectos
+          {t("Showing")}{" "}
+          <span className="text-(--dorado)">{visible.length}</span> {t("Pro")}
         </p>
       </Reveal>
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-5">
