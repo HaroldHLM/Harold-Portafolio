@@ -6,7 +6,7 @@ import Link from "next/link";
 import Reveal from "../animations/Reveal";
 import { useTranslations } from "next-intl";
 import { SiGithub } from "react-icons/si";
-import { ExternalLink } from "lucide-react";
+// import { ExternalLink } from "lucide-react";
 
 type Project = {
   id: string;
@@ -30,7 +30,7 @@ const projects: Project[] = [
       "JWT",
       "Docker",
     ],
-    github: "https://github.com/tuusuario/ecommerce",
+    github: "https://github.com/HaroldHLM/educore",
     demo: "https://ecommercess-demo.vercel.app",
     image: "/image/projects/image1.png",
     featured: true,
@@ -38,7 +38,7 @@ const projects: Project[] = [
   {
     id: "E-Commerce",
     stack: ["React", "Node.js", "Prisma", "PostgreSQL", "TypeScript"],
-    github: "https://github.com/tuusuario/taskmanager",
+    github: "https://github.com/codeableorg/fullstock-frontend",
     demo: "https://tasksss-demo.vercel.app",
     image: "/image/projects/image2.png",
   },
@@ -137,7 +137,7 @@ function ProjectCard({ project }: { project: Project }) {
             <SiGithub size={13} />
             GitHub
           </Link>
-          <span className="text-(--text)/70 text-xs">·</span>
+          {/* <span className="text-(--text)/70 text-xs">·</span>
           <Link
             href={project.demo}
             target="_blank"
@@ -151,7 +151,7 @@ function ProjectCard({ project }: { project: Project }) {
           >
             <ExternalLink size={13} />
             Demo
-          </Link>
+          </Link> */}
         </div>
       </div>
     </div>
@@ -234,7 +234,8 @@ export default function Projects() {
       <Reveal>
         <p className="font-mono text-[10px] text-(--text)/70 mb-8">
           {t("Showing")}{" "}
-          <span className="text-(--dorado)">{visible.length}</span> {t("Pro")}
+          <span className="text-(--dorado)">{visible.length}</span>
+          {t("Pro")}
         </p>
       </Reveal>
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-5">
