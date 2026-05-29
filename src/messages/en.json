@@ -144,27 +144,27 @@
         "descriptionModal": "Project developed at Codeable in collaboration with other developers. Includes an AI-powered chatbot capable of querying products and performing actions such as adding items to the shopping cart.",
         "process": [
           {
-            "image": "/image/projects/E-Commerce/image.png",
+            "image": "/image/projects/ecommerce/image.png",
             "caption": "Main e-commerce landing page featuring authentication flow and initial product catalog exploration."
           },
           {
-            "image": "/image/projects/E-commerce/producto1.png",
+            "image": "/image/projects/ecommerce/producto1.png",
             "caption": "Product detail view focused on user experience, allowing size selection and intuitive purchase management."
           },
           {
-            "image": "/image/projects/E-commerce/carrito.png",
+            "image": "/image/projects/ecommerce/carrito.png",
             "caption": "Shopping cart with product management and dynamic order summary."
           },
           {
-            "image": "/image/projects/E-commerce/resumen.png",
+            "image": "/image/projects/ecommerce/resumen.png",
             "caption": "Checkout flow with order summary and user data registration to complete the purchase."
           },
           {
-            "image": "/image/projects/E-commerce/pago.png",
+            "image": "/image/projects/ecommerce/pago.png",
             "caption": "Culqi payment integration for secure card transaction processing."
           },
           {
-            "image": "/image/projects/E-commerce/confirmacion.png",
+            "image": "/image/projects/ecommerce/confirmacion.png",
             "caption": "Final order confirmation displayed after successfully completing the payment process."
           }
         ]

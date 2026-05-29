@@ -144,27 +144,27 @@
         "descriptionModal": "Proyecto realizado en codeable en conjunto con otros programadores. Con Chatbot impulsado por IA que permite consultar productos y realizar acciones como agregar artículos al carrito.",
         "process": [
           {
-            "image": "/image/projects/E-Commerce/image.png",
-            "caption": "Landing principal del e-commerce con flujo de autenticación y exploración inicial del catálogo de productos."
+            "image": "/image/projects/ecommerce/image.png",
+            "caption": "Landing principal del E-Commerce con flujo de autenticación y exploración inicial del catálogo de productos."
           },
           {
-            "image": "/image/projects/E-commerce/producto1.png",
+            "image": "/image/projects/ecommerce/producto1.png",
             "caption": "Vista de producto enfocada en la experiencia del usuario, permitiendo seleccionar tallas y gestionar la compra de forma intuitiva."
           },
           {
-            "image": "/image/projects/E-commerce/carrito.png",
+            "image": "/image/projects/ecommerce/carrito.png",
             "caption": "Carrito de compras con gestión de productos y resumen dinámico del pedido."
           },
           {
-            "image": "/image/projects/E-commerce/resumen.png",
+            "image": "/image/projects/ecommerce/resumen.png",
             "caption": "Flujo de checkout con resumen del pedido y registro de datos para completar la compra."
           },
           {
-            "image": "/image/projects/E-commerce/pago.png",
+            "image": "/image/projects/ecommerce/pago.png",
             "caption": "Integración de pagos con Culqi para el procesamiento seguro de tarjetas."
           },
           {
-            "image": "/image/projects/E-commerce/confirmacion.png",
+            "image": "/image/projects/ecommerce/confirmacion.png",
             "caption": "Confirmación final del pedido tras completar exitosamente el proceso de pago."
           }
         ]
