@@ -6,9 +6,9 @@ import Image from "next/image";
 
 const stats = [
   { num: "2+", label: "Stats.experience" },
-  { num: "15+", label: "Stats.projects" },
+  // { num: "15+", label: "Stats.projects" },
   { num: "8", label: "Stats.technologies" },
-  { num: "∞", label: "Stats.bugs" },
+  // { num: "∞", label: "Stats.bugs" },
 ];
 
 export default function About() {
