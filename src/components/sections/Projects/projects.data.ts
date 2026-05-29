@@ -17,6 +17,21 @@ export const projects: Project[] = [
     demo: "https://ecommercess-demo.vercel.app",
     image: "/image/projects/image1.png",
     featured: true,
+    modalSlides: [
+      {
+        image: "/image/projects/image1.png",
+        caption: "Arquitectura inicial de la plataforma (simbólico)",
+      },
+      {
+        image: "/image/projects/image.png",
+        caption: "Flujo académico multi-tenant en progreso (simbólico)",
+      },
+      {
+        image: "/image/projects/image1.png",
+        caption:
+          "Panel principal con analíticas y gestión de usuarios (simbólico)",
+      },
+    ],
   },
   {
     id: "E-Commerce",
@@ -32,19 +47,19 @@ export const projects: Project[] = [
     github: "https://github.com/codeableorg/fullstock-frontend",
     demo: "https://tasksss-demo.vercel.app",
     image: "/image/projects/image.png",
+    modalSlides: [
+      {
+        image: "/image/projects/image.png",
+        caption: "Vista de catálogo y filtros de productos (simbólico)",
+      },
+      {
+        image: "/image/projects/image1.png",
+        caption: "Flujo de carrito y checkout integrado (simbólico)",
+      },
+      {
+        image: "/image/projects/image.png",
+        caption: "Cierre de compra con validaciones y testing (simbólico)",
+      },
+    ],
   },
-  //   {
-  //     id: "blog-cms",
-  //     stack: ["Next.js", "PostgreSQL", "MDX"],
-  //     github: "https://github.com/tuusuario/blog-cms",
-  //     demo: "https://blogss-demo.vercel.app",
-  //     image: "/image/projects/image3.png",
-  //   },
-  //   {
-  //     id: "finance-dashboard",
-  //     stack: ["React", "Node.js", "PostgreSQL", "Recharts"],
-  //     github: "https://github.com/tuusuario/finance",
-  //     demo: "https://finance-ssdemo.vercel.app",
-  //     image: "/image/projects/image4.png",
-  //   },
 ];

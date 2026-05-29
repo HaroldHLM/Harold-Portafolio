@@ -1,3 +1,7 @@
+export type ProjectModalSlide = {
+  image?: string;
+  caption: string;
+};
 export type Project = {
   id: string;
   stack: string[];
@@ -5,4 +9,5 @@ export type Project = {
   demo: string;
   image: string;
   featured?: boolean;
+  modalSlides?: ProjectModalSlide[];
 };

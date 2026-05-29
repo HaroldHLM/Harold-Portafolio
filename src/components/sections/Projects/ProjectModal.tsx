@@ -2,15 +2,10 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useTranslations, useMessages } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import { SiGithub } from "react-icons/si";
-import { useState, useCallback } from "react";
+import { useCallback, useEffect, useMemo, useState } from "react";
 import { Project } from "./types";
-
-type ProcessStep = {
-  image: string;
-  caption: string;
-};
 
 type Props = {
   project: Project;
@@ -19,36 +14,78 @@ type Props = {
 
 export default function ProjectModal({ project, onClose }: Props) {
   const t = useTranslations("Projects");
-  const messages = useMessages();
+  const locale = useLocale();
   const [current, setCurrent] = useState(0);
+  const isSpanish = locale.startsWith("es");
+  const fallbackImage = project.image?.trim()
+    ? project.image
+    : "/image/projects/image1.png";
 
-  // Extraemos los pasos del proceso desde messages raw
-  const processSteps: ProcessStep[] =
-    (messages as any)?.Projects?.items?.[project.id]?.process ?? [];
+  const fallbackSlides = useMemo(
+    () => [
+      {
+        image: fallbackImage,
+        caption: isSpanish
+          ? "Vista general del proyecto (simbólico)"
+          : "General project overview (symbolic)",
+      },
+      {
+        image: "/image/projects/image1.png",
+        caption: isSpanish
+          ? "Detalle funcional clave del proyecto (simbólico)"
+          : "Key functional detail (symbolic)",
+      },
+      {
+        image: "/image/projects/image.png",
+        caption: isSpanish
+          ? "Resultado visual y flujo final (simbólico)"
+          : "Visual result and final flow (symbolic)",
+      },
+    ],
+    [fallbackImage, isSpanish],
+  );
 
-  const hasProcess = processSteps.length > 0;
+  const slides = useMemo(
+    () =>
+      project.modalSlides && project.modalSlides.length > 0
+        ? project.modalSlides.map((slide, index) => ({
+            image: slide.image || fallbackImage,
+            caption: slide.caption || fallbackSlides[index % fallbackSlides.length].caption,
+          }))
+        : fallbackSlides,
+    [project.modalSlides, fallbackImage, fallbackSlides],
+  );
+
+  const hasMultipleSlides = slides.length > 1;
 
   const prev = useCallback(() => {
-    setCurrent((c) => (c - 1 + processSteps.length) % processSteps.length);
-  }, [processSteps.length]);
+    setCurrent((value) => (value - 1 + slides.length) % slides.length);
+  }, [slides.length]);
 
   const next = useCallback(() => {
-    setCurrent((c) => (c + 1) % processSteps.length);
-  }, [processSteps.length]);
+    setCurrent((value) => (value + 1) % slides.length);
+  }, [slides.length]);
 
-  // Cerrar con Escape
-  const handleKeyDown = (e: React.KeyboardEvent) => {
-    if (e.key === "Escape") onClose();
-    if (e.key === "ArrowLeft") prev();
-    if (e.key === "ArrowRight") next();
-  };
+
+  useEffect(() => {
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") onClose();
+      if (event.key === "ArrowLeft") prev();
+      if (event.key === "ArrowRight") next();
+    };
+
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+
+    window.addEventListener("keydown", handleKeyDown);
+    return () => {
+      document.body.style.overflow = previousOverflow;
+      window.removeEventListener("keydown", handleKeyDown);
+    };
+  }, [onClose, prev, next]);
 
   return (
-    <div
-      className="fixed inset-0 z-50 flex items-center justify-center p-4"
-      onKeyDown={handleKeyDown}
-      tabIndex={-1}
-    >
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4">
       {/* Overlay */}
       <div
         className="absolute inset-0 bg-black/70 backdrop-blur-sm"
@@ -59,182 +96,168 @@ export default function ProjectModal({ project, onClose }: Props) {
       <div
         className="
           relative z-10
-          w-full max-w-4xl
+          w-full max-w-5xl
           max-h-[90vh]
-          overflow-y-auto
           border border-(--text)/20
           bg-(--bg)
           rounded-2xl
           overflow-hidden
         "
+        role="dialog"
+        aria-modal="true"
+        aria-label={t(`items.${project.id}.title`)}
       >
-        {/* Imagen principal del proyecto */}
-        <div className="relative w-full h-64 lg:h-80">
-          <Image
-            src={project.image}
-            alt={project.id}
-            fill
-            className="object-cover object-top"
-          />
-          <button
-            onClick={onClose}
-            className="
-              absolute top-4 right-4
-              w-9 h-9
-              flex items-center justify-center
-              border border-white/20
-              bg-black/40
-              text-white
-              rounded-lg
-              cursor-pointer
-              hover:bg-black/60
-              transition-colors
-            "
-          >
-            ✕
-          </button>
-        </div>
+        <button
+          onClick={onClose}
+          className="
+            absolute top-3 right-3 z-20
+            w-9 h-9
+            flex items-center justify-center
+            border border-white/20
+            bg-black/40
+            text-white
+            rounded-lg
+            cursor-pointer
+            hover:bg-black/60
+            transition-colors
+          "
+          aria-label={isSpanish ? "Cerrar modal" : "Close modal"}
+        >
+          ✕
+        </button>
 
-        {/* Contenido */}
-        <div className="p-7 flex flex-col gap-6">
-          {/* Título y descripción */}
-          <div>
-            <h3
-              style={{ fontFamily: "'Cormorant Garamond', serif" }}
-              className="text-4xl text-(--text)"
-            >
-              {t(`items.${project.id}.title`)}
-            </h3>
-            <p className="mt-3 font-mono text-[11px] leading-7 text-(--muted)">
-              {t(`items.${project.id}.description`)}
-            </p>
-          </div>
-
-          {/* Stack */}
-          <div className="flex flex-wrap gap-2">
-            {project.stack.map((tech) => (
-              <span
-                key={tech}
-                className="
-                  font-mono text-[10px]
-                  px-3 py-1.5
-                  border border-(--text)/20
-                  text-(--muted)
-                "
-              >
-                {tech}
-              </span>
-            ))}
-          </div>
-
-          {/* ── Carrusel del proceso ── */}
-          {hasProcess && (
-            <div className="flex flex-col gap-3">
-              <h4 className="font-mono text-[10px] uppercase tracking-widest text-(--muted)">
-                {t("process_title")} {/* ej: "Development Process" */}
-              </h4>
-
-              <div className="relative w-full">
-                {/* Imagen del paso */}
-                <div className="relative w-full h-56 lg:h-72 rounded-xl overflow-hidden border border-(--text)/10">
-                  <Image
-                    key={current}
-                    src={processSteps[current].image}
-                    alt={processSteps[current].caption}
-                    fill
-                    className="object-cover object-top transition-opacity duration-300"
-                  />
-
-                  {/* Flecha izquierda */}
-                  <button
-                    onClick={prev}
-                    className="
-                      absolute left-3 top-1/2 -translate-y-1/2
-                      w-9 h-9
-                      flex items-center justify-center
-                      bg-black/50 hover:bg-black/70
-                      border border-white/10
-                      text-white rounded-lg
-                      transition-colors cursor-pointer
-                    "
-                    aria-label="Anterior"
-                  >
-                    ‹
-                  </button>
-
-                  {/* Flecha derecha */}
-                  <button
-                    onClick={next}
-                    className="
-                      absolute right-3 top-1/2 -translate-y-1/2
-                      w-9 h-9
-                      flex items-center justify-center
-                      bg-black/50 hover:bg-black/70
-                      border border-white/10
-                      text-white rounded-lg
-                      transition-colors cursor-pointer
-                    "
-                    aria-label="Siguiente"
-                  >
-                    ›
-                  </button>
-
-                  {/* Contador */}
-                  <span
-                    className="
-                    absolute bottom-3 right-3
-                    font-mono text-[10px]
-                    bg-black/50 text-white
-                    px-2 py-1 rounded
-                  "
-                  >
-                    {current + 1} / {processSteps.length}
-                  </span>
-                </div>
-
-                {/* Caption */}
-                <p className="mt-3 font-mono text-[11px] leading-6 text-(--muted) text-center">
-                  {processSteps[current].caption}
-                </p>
-
-                {/* Dots */}
-                <div className="flex justify-center gap-1.5 mt-3">
-                  {processSteps.map((_, i) => (
-                    <button
-                      key={i}
-                      onClick={() => setCurrent(i)}
-                      className={`
-                        w-1.5 h-1.5 rounded-full transition-all cursor-pointer
-                        ${
-                          i === current
-                            ? "bg-(--text) scale-125"
-                            : "bg-(--text)/20 hover:bg-(--text)/40"
-                        }
-                      `}
-                      aria-label={`Ir al paso ${i + 1}`}
-                    />
-                  ))}
-                </div>
-              </div>
+        <div className="grid grid-cols-1 lg:grid-cols-[1.05fr_0.95fr]">
+          <div className="relative border-b lg:border-b-0 lg:border-r border-(--text)/20">
+            <div className="relative w-full h-56 sm:h-72 lg:h-full lg:min-h-[520px]">
+              <Image
+                key={`${project.id}-${current}`}
+                src={slides[current].image}
+                alt={slides[current].caption}
+                fill
+                className="object-cover object-top"
+              />
             </div>
-          )}
 
-          {/* GitHub */}
-          <Link
-            href={project.github}
-            target="_blank"
-            className="
-              font-mono text-[10px]
-              uppercase tracking-widest
-              text-(--text)
-              hover:text-(--dorado)
-              transition-colors
-              flex items-center gap-2
-            "
-          >
-            <SiGithub size={14} />
-            GitHub
-          </Link>
+            {hasMultipleSlides && (
+              <>
+                <button
+                  onClick={prev}
+                  className="
+                    absolute left-3 top-1/2 -translate-y-1/2
+                    w-9 h-9
+                    flex items-center justify-center
+                    bg-black/50 hover:bg-black/70
+                    border border-white/10
+                    text-white rounded-lg
+                    transition-colors cursor-pointer
+                  "
+                  aria-label={isSpanish ? "Anterior" : "Previous"}
+                >
+                  ‹
+                </button>
+                <button
+                  onClick={next}
+                  className="
+                    absolute right-3 top-1/2 -translate-y-1/2
+                    w-9 h-9
+                    flex items-center justify-center
+                    bg-black/50 hover:bg-black/70
+                    border border-white/10
+                    text-white rounded-lg
+                    transition-colors cursor-pointer
+                  "
+                  aria-label={isSpanish ? "Siguiente" : "Next"}
+                >
+                  ›
+                </button>
+              </>
+            )}
+          </div>
+
+          <div className="max-h-[90vh] overflow-y-auto p-5 sm:p-7 lg:p-8 flex flex-col gap-6">
+            <div>
+              <h3
+                style={{ fontFamily: "'Cormorant Garamond', serif" }}
+                className="text-3xl sm:text-4xl text-(--text)"
+              >
+                {t(`items.${project.id}.title`)}
+              </h3>
+              <p className="mt-3 font-mono text-[11px] leading-7 text-(--muted)">
+                {t(`items.${project.id}.description`)}
+              </p>
+            </div>
+
+            <div>
+              <p className="font-mono text-[10px] uppercase tracking-[0.15em] text-(--text)/70 mb-3">
+                {isSpanish ? "Recorrido visual" : "Visual walkthrough"}
+              </p>
+              <p className="font-mono text-[11px] leading-6 text-(--muted)">
+                {slides[current].caption}
+              </p>
+              {hasMultipleSlides && (
+                <div className="flex items-center gap-2 mt-3">
+                  <span className="font-mono text-[10px] text-(--text)/60">
+                    {current + 1} / {slides.length}
+                  </span>
+                  <div className="flex items-center gap-1.5">
+                    {slides.map((_, index) => (
+                      <button
+                        key={index}
+                        onClick={() => setCurrent(index)}
+                        className={`
+                          w-2 h-2 rounded-full transition-all cursor-pointer
+                          ${
+                            index === current
+                              ? "bg-(--dorado) scale-110"
+                              : "bg-(--text)/20 hover:bg-(--text)/40"
+                          }
+                        `}
+                        aria-label={
+                          isSpanish
+                            ? `Ir a diapositiva ${index + 1}`
+                            : `Go to slide ${index + 1}`
+                        }
+                      />
+                    ))}
+                  </div>
+                </div>
+              )}
+            </div>
+
+            <div className="flex flex-wrap gap-2">
+              {project.stack.map((tech) => (
+                <span
+                  key={tech}
+                  className="
+                    font-mono text-[10px]
+                    px-3 py-1.5
+                    border border-(--text)/20
+                    text-(--muted)
+                  "
+                >
+                  {tech}
+                </span>
+              ))}
+            </div>
+
+            <Link
+              href={project.github}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="
+                mt-auto
+                font-mono text-[10px]
+                uppercase tracking-widest
+                text-(--text)
+                hover:text-(--dorado)
+                transition-colors
+                flex items-center gap-2
+              "
+            >
+              <SiGithub size={14} />
+              GitHub
+            </Link>
+          </div>
         </div>
       </div>
     </div>

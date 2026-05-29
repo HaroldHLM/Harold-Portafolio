@@ -139,15 +139,17 @@
       },
       "E-Commerce": {
         "title": "E-Commerce",
-        "description": "E-commerce desarrollado en equipo que permite a los usuarios registrarse, explorar productos, gestionar un carrito de compras y realizar pagos en línea mediante integración con Culqi. El proyecto incluye autenticación de usuarios, gestión de productos y flujo completo de compra, aplicando buenas prácticas de desarrollo, testing e integración continua."
-      },
-      "blog-cms": {
-        "title": "Blog CMS",
-        "description": "Sistema de gestión de contenido con editor markdown, categorías y SEO automático."
-      },
-      "finance-dashboard": {
-        "title": "Finance Dashboard",
-        "description": "Dashboard de finanzas personales con gráficas interactivas, importación de CSV y reportes mensuales."
+        "description": "E-commerce desarrollado en equipo que permite a los usuarios registrarse, explorar productos, gestionar un carrito de compras y realizar pagos en línea mediante integración con Culqi. El proyecto incluye autenticación de usuarios, gestión de productos y flujo completo de compra, aplicando buenas prácticas de desarrollo, testing e integración continua.",
+        "process": [
+          {
+            "image": "/image/projects/ecommerce/step1.png",
+            "caption": "Cart and checkout flow wireframes"
+          },
+          {
+            "image": "/image/projects/ecommerce/step2.png",
+            "caption": "CI/CD pipeline with GitHub Actions"
+          }
+        ]
       }
     },
     "Showing": "Mostrando",
