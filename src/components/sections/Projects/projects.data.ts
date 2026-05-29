@@ -15,7 +15,7 @@ export const projects: Project[] = [
     ],
     github: "https://github.com/HaroldHLM/educore",
     demo: "https://ecommercess-demo.vercel.app",
-    image: "/image/projects/SaaS/image1.png",
+    image: "/image/projects/saas/image1.png",
     featured: true,
   },
   {
@@ -31,6 +31,6 @@ export const projects: Project[] = [
     ],
     github: "https://github.com/codeableorg/fullstock-frontend",
     demo: "https://tasksss-demo.vercel.app",
-    image: "/image/projects/E-Commerce/image.png",
+    image: "/image/projects/ecommerce/image.png",
   },
 ];
