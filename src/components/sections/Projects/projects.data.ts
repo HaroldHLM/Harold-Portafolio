@@ -20,10 +20,18 @@ export const projects: Project[] = [
   },
   {
     id: "E-Commerce",
-    stack: ["React", "Node.js", "Prisma", "PostgreSQL", "TypeScript"],
+    stack: [
+      "React",
+      "Node.js",
+      "Prisma",
+      "PostgreSQL",
+      "TypeScript",
+      "Testing",
+      "Github Actions",
+    ],
     github: "https://github.com/codeableorg/fullstock-frontend",
     demo: "https://tasksss-demo.vercel.app",
-    image: "/image/projects/image2.png",
+    image: "/image/projects/image.png",
   },
   //   {
   //     id: "blog-cms",
