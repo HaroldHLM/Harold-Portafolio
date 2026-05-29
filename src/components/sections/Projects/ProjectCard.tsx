@@ -25,14 +25,14 @@ export function ProjectCard({ project, onOpen }: Props) {
       <div
         className={`
           relative w-full bg-(--dorado)/10
-          ${project.featured ? "h-56" : "h-40"}
+          ${project.featured ? "h-56 sm:h-64" : "h-48 sm:h-52"}
         `}
       >
         <Image
           src={project.image}
           alt={t(`${project.id}.title`)}
           fill
-          className="object-cover object-top"
+          className="object-contain object-center p-2"
         />
         {project.featured && (
           <span className="absolute top-3 left-3 font-mono text-[9px] tracking-widest uppercase px-2.5 py-1 border border-(--dorado) text-(--dorado)">

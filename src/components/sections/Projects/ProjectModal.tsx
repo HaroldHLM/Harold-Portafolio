@@ -4,7 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useLocale, useTranslations } from "next-intl";
 import { SiGithub } from "react-icons/si";
-import { useCallback, useEffect, useMemo, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { Project } from "./types";
 
 type Props = {
@@ -17,44 +17,12 @@ export default function ProjectModal({ project, onClose }: Props) {
   const locale = useLocale();
   const [current, setCurrent] = useState(0);
   const isSpanish = locale.startsWith("es");
-  const fallbackImage = project.image?.trim()
-    ? project.image
-    : "/image/projects/image1.png";
 
-  const fallbackSlides = useMemo(
-    () => [
-      {
-        image: fallbackImage,
-        caption: isSpanish
-          ? "Vista general del proyecto (simbólico)"
-          : "General project overview (symbolic)",
-      },
-      {
-        image: "/image/projects/image1.png",
-        caption: isSpanish
-          ? "Detalle funcional clave del proyecto (simbólico)"
-          : "Key functional detail (symbolic)",
-      },
-      {
-        image: "/image/projects/image.png",
-        caption: isSpanish
-          ? "Resultado visual y flujo final (simbólico)"
-          : "Visual result and final flow (symbolic)",
-      },
-    ],
-    [fallbackImage, isSpanish],
-  );
+  type Slide = { image: string; caption: string };
+  const processSlides = t.raw(`items.${project.id}.process`);
 
-  const slides = useMemo(
-    () =>
-      project.modalSlides && project.modalSlides.length > 0
-        ? project.modalSlides.map((slide, index) => ({
-            image: slide.image || fallbackImage,
-            caption: slide.caption || fallbackSlides[index % fallbackSlides.length].caption,
-          }))
-        : fallbackSlides,
-    [project.modalSlides, fallbackImage, fallbackSlides],
-  );
+  const fallbackSlides: Slide[] = [{ image: "/", caption: "" }];
+  const slides: Slide[] = processSlides?.length ? processSlides : fallbackSlides;
 
   const hasMultipleSlides = slides.length > 1;
 
@@ -65,7 +33,6 @@ export default function ProjectModal({ project, onClose }: Props) {
   const next = useCallback(() => {
     setCurrent((value) => (value + 1) % slides.length);
   }, [slides.length]);
-
 
   useEffect(() => {
     const handleKeyDown = (event: KeyboardEvent) => {
@@ -128,13 +95,13 @@ export default function ProjectModal({ project, onClose }: Props) {
 
         <div className="grid grid-cols-1 lg:grid-cols-[1.05fr_0.95fr]">
           <div className="relative border-b lg:border-b-0 lg:border-r border-(--text)/20">
-            <div className="relative w-full h-56 sm:h-72 lg:h-full lg:min-h-[520px]">
+            <div className="relative w-full h-56 sm:h-72 lg:h-full lg:min-h-130">
               <Image
                 key={`${project.id}-${current}`}
                 src={slides[current].image}
                 alt={slides[current].caption}
                 fill
-                className="object-cover object-top"
+                className="object-contain object-center"
               />
             </div>
 
@@ -183,7 +150,7 @@ export default function ProjectModal({ project, onClose }: Props) {
                 {t(`items.${project.id}.title`)}
               </h3>
               <p className="mt-3 font-mono text-[11px] leading-7 text-(--muted)">
-                {t(`items.${project.id}.description`)}
+                {t(`items.${project.id}.descriptionModal`)}
               </p>
             </div>
 
