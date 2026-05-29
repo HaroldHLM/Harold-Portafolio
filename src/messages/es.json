@@ -122,6 +122,7 @@
       "SaaS": {
         "title": "Plataforma SaaS Multi-Tenant de Gestión Académica (En desarrollo)",
         "description": "Plataforma SaaS multi-tenant orientada a la gestión académica, diseñada con una arquitectura escalable y separación de datos por organización. El sistema incluye analíticas en tiempo real, generación automatizada de boletines y gestión segura de usuarios mediante autenticación y control de acceso basado en JWT.",
+        "descriptionModal": "xxxxxx",
         "process": [
           {
             "image": "/image/projects/saas/step1.png",
@@ -140,14 +141,31 @@
       "E-Commerce": {
         "title": "E-Commerce",
         "description": "E-commerce desarrollado en equipo que permite a los usuarios registrarse, explorar productos, gestionar un carrito de compras y realizar pagos en línea mediante integración con Culqi. El proyecto incluye autenticación de usuarios, gestión de productos y flujo completo de compra, aplicando buenas prácticas de desarrollo, testing e integración continua.",
+        "descriptionModal": "Proyecto realizado en codeable en conjunto con otros programadores. Con Chatbot impulsado por IA que permite consultar productos y realizar acciones como agregar artículos al carrito.",
         "process": [
           {
-            "image": "/image/projects/ecommerce/step1.png",
-            "caption": "Cart and checkout flow wireframes"
+            "image": "/image/projects/E-Commerce/image.png",
+            "caption": "Landing principal del e-commerce con flujo de autenticación y exploración inicial del catálogo de productos."
           },
           {
-            "image": "/image/projects/ecommerce/step2.png",
-            "caption": "CI/CD pipeline with GitHub Actions"
+            "image": "/image/projects/E-commerce/producto1.png",
+            "caption": "Vista de producto enfocada en la experiencia del usuario, permitiendo seleccionar tallas y gestionar la compra de forma intuitiva."
+          },
+          {
+            "image": "/image/projects/E-commerce/carrito.png",
+            "caption": "Carrito de compras con gestión de productos y resumen dinámico del pedido."
+          },
+          {
+            "image": "/image/projects/E-commerce/resumen.png",
+            "caption": "Flujo de checkout con resumen del pedido y registro de datos para completar la compra."
+          },
+          {
+            "image": "/image/projects/E-commerce/pago.png",
+            "caption": "Integración de pagos con Culqi para el procesamiento seguro de tarjetas."
+          },
+          {
+            "image": "/image/projects/E-commerce/confirmacion.png",
+            "caption": "Confirmación final del pedido tras completar exitosamente el proceso de pago."
           }
         ]
       }
