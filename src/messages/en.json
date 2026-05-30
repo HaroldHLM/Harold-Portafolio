@@ -119,27 +119,27 @@
     "demo": "Demo",
     "items": {
       "SaaS": {
-        "title": "Plataforma SaaS Multi-Tenant de Gestión Académica (En desarrollo)",
-        "description": "Plataforma SaaS multi-tenant orientada a la gestión académica, diseñada con una arquitectura escalable y separación de datos por organización. El sistema incluye analíticas en tiempo real, generación automatizada de boletines y gestión segura de usuarios mediante autenticación y control de acceso basado en JWT.",
-        "descriptionModal": "xxxxxx",
+        "title": "Multi-Tenant Academic Management SaaS Platform (In Development)",
+        "description": "Multi-tenant SaaS platform designed for academic management, built with a scalable architecture and data isolation per organization. The system includes real-time analytics, automated report card generation, and secure user management through JWT-based authentication and access control.",
+        "descriptionModal": "Project developed independently to enhance and apply my knowledge.",
         "process": [
           {
-            "image": "/image/projects/saas/step1.png",
-            "caption": "Initial architecture design and database schema planning"
+            "image": "/image/projects/saas/docker.png",
+            "caption": "Deployment of the platform services using Docker Compose, enabling a reproducible and consistent environment configuration."
           },
           {
-            "image": "/image/projects/saas/step2.png",
-            "caption": "Authentication flow with JWT and refresh tokens"
+            "image": "/image/projects/saas/login.png",
+            "caption": "Implementation and testing of the authentication module, showcasing the login flow and JWT access token generation through Postman."
           },
           {
-            "image": "/image/projects/saas/step3.png",
-            "caption": "Final dashboard UI with dark mode support"
+            "image": "/image/projects/saas/estudiantes.png",
+            "caption": "Multi-tenant system with management of students, teachers, courses, subjects, and organization-specific configurable permissions."
           }
         ]
       },
       "E-Commerce": {
         "title": "E-Commerce",
-        "description": "E-commerce desarrollado en equipo que permite a los usuarios registrarse, explorar productos, gestionar un carrito de compras y realizar pagos en línea mediante integración con Culqi. El proyecto incluye autenticación de usuarios, gestión de productos y flujo completo de compra, aplicando buenas prácticas de desarrollo, testing e integración continua.",
+        "description": "Team-developed e-commerce platform that allows users to register, browse products, manage a shopping cart, and complete online payments through Culqi integration. The project includes user authentication, product management, and a complete purchasing workflow, following software development best practices, testing, and continuous integration.",
 
         "descriptionModal": "Project developed at Codeable in collaboration with other developers. Includes an AI-powered chatbot capable of querying products and performing actions such as adding items to the shopping cart.",
         "process": [

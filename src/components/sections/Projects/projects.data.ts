@@ -15,7 +15,7 @@ export const projects: Project[] = [
     ],
     github: "https://github.com/HaroldHLM/educore",
     demo: "https://ecommercess-demo.vercel.app",
-    image: "/image/projects/saas/image1.png",
+    image: "/image/projects/saas/image.png",
     featured: true,
   },
   {
