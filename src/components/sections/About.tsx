@@ -89,7 +89,7 @@ export default function About() {
           <Reveal>
             <div className="flex items-center gap-3 mt-8">
               <a
-                href="https://drive.google.com/file/d/1xJnTth8vVE78vep5Yswcj2p6Rf_cyhE6/view?usp=sharing"
+                href={t("URLcv")}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="font-mono text-[10px] tracking-widest uppercase border border-(--dorado) text-(--dorado) px-5 py-2.5 hover:bg-(--dorado) hover:text-(--text) transition-all duration-200 no-underline"
